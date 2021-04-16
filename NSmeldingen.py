@@ -10,6 +10,17 @@ from chump import Application
 from datetime import datetime, date
 from re import compile
 from time import time
+from NSmeldingen_settings import (twitter_app_key,
+                                  twitter_app_secret,
+                                  twitter_oauth_token,
+                                  twitter_oauth_token_secret,
+                                  pushover_UserKey,
+                                  pushover_APIToken)
+
+
+# Setting for PushOver
+app = Application(pushover_APIToken)
+user = app.get_user(pushover_UserKey)
 
 
 # Convert UTC times to local times
@@ -18,18 +29,6 @@ def datetime_from_utc_to_local(utc_datetime):
     offset = datetime.fromtimestamp(
         now_timestamp) - datetime.utcfromtimestamp(now_timestamp)
     return utc_datetime + offset
-
-
-# Setting these as variables will make them easier for future edits
-app_key = "xxxxx"
-app_secret = "xxxxxxx"
-oauth_token = "xxxxxx-xxxxx"
-oauth_token_secret = "xxxxxxx"
-
-
-# Setting for PushOver
-app = Application("xxxxxx")
-user = app.get_user("xxxxxxx")
 
 
 # Let's gather a list of words we DON'T want to send to Pushover
@@ -94,7 +93,8 @@ keywords = "from:NS_online AND (" + wanted + unwanted + ")"
 
 try:
     # This time we want to set our q to search for our keywords
-    twitter = Twython(app_key, app_secret, oauth_token, oauth_token_secret)
+    twitter = Twython(twitter_app_key, twitter_app_secret,
+                      twitter_oauth_token, twitter_oauth_token_secret)
     search_results = twitter.search(
         q=keywords, count=25, since_id=sinceid_value)
 
