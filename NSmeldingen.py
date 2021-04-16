@@ -36,7 +36,7 @@ twitter_account = "NS_online"
 
 
 # Filename to hold the last known TwitterID
-id_file = "./since_id.txt"
+id_file = "./NSmeldingen_lastID.txt"
 
 
 # Let's gather a list of words we DON'T want to send to Pushover
