@@ -15,13 +15,13 @@ from NSmeldingen_settings import (twitter_app_key,
                                   twitter_app_secret,
                                   twitter_oauth_token,
                                   twitter_oauth_token_secret,
-                                  pushover_UserKey,
-                                  pushover_APIToken)
+                                  pushover_user_key,
+                                  pushover_token_api)
 
 
 # Setting for PushOver
-app = Application(pushover_APIToken)
-user = app.get_user(pushover_UserKey)
+app = Application(pushover_token_api)
+user = app.get_user(pushover_user_key)
 
 
 # Convert UTC times to local times
