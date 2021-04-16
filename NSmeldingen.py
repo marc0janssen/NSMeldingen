@@ -3,7 +3,7 @@
 # date: 2016-07-28
 # update: 2021-04-16
 
-ƒ
+
 # Importing the modules
 from twython import Twython, TwythonError
 from chump import Application
