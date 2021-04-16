@@ -1,7 +1,8 @@
 # Name: NSmeldingen
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2016-07-28
-# version: 1.0.1
+# update: 2021-04-16
+# version: 1.0.2
 
 
 # Importing the modules
