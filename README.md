@@ -1,2 +1,14 @@
 # NSMeldingen
- Route alert for the Nederlandse Spoorwegen in Holland
+
+Route alert for the Nederlandse Spoorwegen in Holland
+
+1. [Set up a developer account with Twitter](https://developer.twitter.com/en/portal/projects-and-apps)
+2. Create your applicatie with Twitter
+3. Generate an API Key and Secret
+4. Generate an Access Token and Secret
+5. [Setup an account with Pushover](https://pushover.net)
+6. Get your User Key
+7. Create a new app
+8. Get token api for the app
+9. Fill out NSmeldingen_settings.py
+10. Setup your own route in NSmeldingen.py. First by adding all the stations on your route to the include_words and then excluding the stations branching from the route posted to Pushover by placing them in the exclude_words. This way only you optimal route remains.
