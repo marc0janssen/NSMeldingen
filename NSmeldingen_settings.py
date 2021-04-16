@@ -1,7 +1,7 @@
 # Name: NSmeldingen_settings
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2021-04-16
-# update: 2021-04-16
+# update: 2021-04-16 15:05:44
 
 
 # Setting these as variables will make them easier for future edits
