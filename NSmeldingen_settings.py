@@ -1,4 +1,4 @@
-# Name: NSmeldingen
+# Name: NSmeldingen_settings
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2021-04-16
 # update: 2021-04-16
