@@ -2,9 +2,8 @@
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2016-07-28
 # update: 2021-04-16
-# version: 1.0.2
 
-
+ƒ
 # Importing the modules
 from twython import Twython, TwythonError
 from chump import Application
@@ -98,7 +97,7 @@ unwanted = " -" + " -".join(exclude_words)
 
 # And finally our list of keywords that we want to search for
 # This will search for any words in include_words minus any exclude_words
-keywords = "from:%s AND (%s%s)", twitter_account, wanted, unwanted
+keywords = "from:%s AND (%s%s)" % (twitter_account, wanted, unwanted)
 
 
 try:
