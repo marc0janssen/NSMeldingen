@@ -2,7 +2,6 @@
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2021-04-16
 # update: 2021-04-16
-# version: 1.0.0
 
 
 # Setting these as variables will make them easier for future edits
