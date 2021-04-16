@@ -53,15 +53,20 @@ exclude_words = ["Boskoop",
 
 
 # And a list of words we WOULD like to send to Pushover
-include_words = ["Woerden",
-                 "Tiel",
-                 "Gouda",
+include_words = ["Tiel",
+                 "Passewaaij",
                  "Geldermalsen",
                  "Culemborg",
+                 "Castellum",
                  "Houten",
-                 "\"Den Haag\"",
+                 "Lunetten",
+                 "Vaartse Rijn",
                  "Utrecht",
-                 "Zoetermeer"]
+                 "Woerden",
+                 "Gouda",
+                 "Zoetermeer",
+                 "Voorburg",
+                 "\"Den Haag\""]
 
 
 # Get our last known found tweet by ID
