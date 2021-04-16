@@ -1,7 +1,7 @@
 # Name: NSmeldingen
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2016-07-28
-# update: 2021-04-16 15:07:33
+# update: 2021-04-16 15:48:20
 
 
 # Importing the modules
@@ -33,6 +33,10 @@ user = app.get_user(pushover_user_key)
 
 # Monitor the following Twitter account
 twitter_account = "NS_online"
+
+
+# Filename to hold the last known TwitterID
+id_file = "./since_id.txt"
 
 
 # Let's gather a list of words we DON'T want to send to Pushover
@@ -75,7 +79,6 @@ include_words = ["Tiel",
 # Get our last known found tweet by ID
 # or else create an empty file and set ID to "0"
 try:
-    id_file = "/app/since_id.txt"
     f = open(id_file, "r")
     sinceid_value = f.readline()
 except IOError:
