@@ -12,5 +12,5 @@ twitter_oauth_token = "xxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx"
 twitter_oauth_token_secret = "xxxxxxxxxxxxxxx"
 
 
-pushover_user_Key = "xxxxxxxxxxxxxxx"
+pushover_user_key = "xxxxxxxxxxxxxxx"
 pushover_token_api = "xxxxxxxxxxxxxxx"
