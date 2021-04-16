@@ -19,17 +19,21 @@ from NSmeldingen_settings import (twitter_app_key,
                                   pushover_token_api)
 
 
-# Setting for PushOver
-app = Application(pushover_token_api)
-user = app.get_user(pushover_user_key)
-
-
 # Convert UTC times to local times
 def datetime_from_utc_to_local(utc_datetime):
     now_timestamp = time()
     offset = datetime.fromtimestamp(
         now_timestamp) - datetime.utcfromtimestamp(now_timestamp)
     return utc_datetime + offset
+
+
+# Setting for PushOver
+app = Application(pushover_token_api)
+user = app.get_user(pushover_user_key)
+
+
+# Monitor the following Twitter account
+twitter_account = "NS_online"
 
 
 # Let's gather a list of words we DON'T want to send to Pushover
@@ -94,7 +98,7 @@ unwanted = " -" + " -".join(exclude_words)
 
 # And finally our list of keywords that we want to search for
 # This will search for any words in include_words minus any exclude_words
-keywords = "from:NS_online AND (" + wanted + unwanted + ")"
+keywords = "from:%s AND (%s%s)", twitter_account, wanted, unwanted
 
 
 try:
