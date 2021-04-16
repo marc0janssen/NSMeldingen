@@ -1,7 +1,7 @@
 # Name: NSmeldingen
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2016-07-28
-# update: 2021-04-16 15:48:20
+# update: 2021-04-16 17:23:57
 
 
 # Importing the modules
@@ -129,12 +129,12 @@ try:
             # convert the UTC to the local time
             tweetdatetime = tweet["created_at"].split()
             tweettime = tweetdatetime[3].split(":")
-            utc = datetime.strptime(date.today().strftime(
-                "%Y-%m-%d") + " " + tweetdatetime[3], "%Y-%m-%d %H:%M:%S")
-            localtime = str(datetime_from_utc_to_local(utc)).split(" ")
-
-            message = user.send_message(
-                localtime[1] + " - " + tweet["text"], sound="tugboat")
+            stringUTC = "%s %s" % (date.today().strftime(
+                "%Y-%m-%d"), tweetdatetime[3])
+            utcDateTime = datetime.strptime(stringUTC, "%Y-%m-%d %H:%M:%S")
+            localtime = str(datetime_from_utc_to_local(utcDateTime)).split(" ")
+            messageTXT = "%s - %s" % (localtime[1], tweet["text"])
+            message = user.send_message(messageTXT, sound="tugboat")
 
 except TwythonError as e:
     print(e)
