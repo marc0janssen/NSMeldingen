@@ -1,7 +1,7 @@
 # Name: NSmeldingen
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2016-07-28
-# update: 2021-04-19 13:12:45
+# update: 2021-04-19 21:50:19
 
 
 # Importing the modules
@@ -27,7 +27,7 @@ def datetime_from_utc_to_local(utc_datetime):
 
 
 # convert a tweetdatetime to datetime
-def tweetdatetime_to_datetime(tweetDate):
+def tweetdatetime_to_datetime_utc(tweetDate):
 
     return datetime.strptime(
         tweetDate, "%a %b %d %H:%M:%S +0000 %Y"
@@ -139,7 +139,7 @@ try:
             localtime = datetime.strftime(
                 (
                     datetime_from_utc_to_local(
-                        tweetdatetime_to_datetime(tweet["created_at"])
+                        tweetdatetime_to_datetime_utc(tweet["created_at"])
                     )
                 ),
                 "%H:%M:%S",
