@@ -128,14 +128,18 @@ try:
             # Get the time of the tweet and
             # convert the UTC to the local time
 
-            new_datetime = datetime.strftime(datetime.strptime(
-                tweet["created_at"], '%a %b %d %H:%M:%S +0000 %Y'),
-                '%Y-%m-%d %H:%M:%S')
-            utcDateTime = datetime.strptime(new_datetime, "%Y-%m-%d %H:%M:%S")
-            localtime = str(datetime_from_utc_to_local(
-                utcDateTime)).split(" ")
+            localtime = datetime.strftime(
+                (
+                    datetime_from_utc_to_local(
+                        datetime.strptime(
+                            tweet["created_at"], "%a %b %d %H:%M:%S +0000 %Y"
+                        )
+                    )
+                ),
+                "%H:%M:%S",
+            )
 
-            messageTXT = "%s - %s" % (localtime[1], tweet["text"])
+            messageTXT = "%s - %s" % (localtime, tweet["text"])
             message = user.send_message(messageTXT, sound="tugboat")
 
 except TwythonError as e:
