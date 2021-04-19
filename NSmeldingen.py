@@ -7,7 +7,7 @@
 # Importing the modules
 from twython import Twython, TwythonError
 from chump import Application
-from datetime import datetime, date
+from datetime import datetime
 from re import compile
 from time import time
 from NSmeldingen_settings import (twitter_app_key,
@@ -127,12 +127,14 @@ try:
 
             # Get the time of the tweet and
             # convert the UTC to the local time
-            tweetdatetime = tweet["created_at"].split()
-            tweettime = tweetdatetime[3].split(":")
-            stringUTC = "%s %s" % (date.today().strftime(
-                "%Y-%m-%d"), tweetdatetime[3])
-            utcDateTime = datetime.strptime(stringUTC, "%Y-%m-%d %H:%M:%S")
-            localtime = str(datetime_from_utc_to_local(utcDateTime)).split(" ")
+
+            new_datetime = datetime.strftime(datetime.strptime(
+                tweet["created_at"], '%a %b %d %H:%M:%S +0000 %Y'),
+                '%Y-%m-%d %H:%M:%S')
+            utcDateTime = datetime.strptime(new_datetime, "%Y-%m-%d %H:%M:%S")
+            localtime = str(datetime_from_utc_to_local(
+                utcDateTime)).split(" ")
+
             messageTXT = "%s - %s" % (localtime[1], tweet["text"])
             message = user.send_message(messageTXT, sound="tugboat")
 
