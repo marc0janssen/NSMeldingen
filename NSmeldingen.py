@@ -26,6 +26,14 @@ def datetime_from_utc_to_local(utc_datetime):
     return utc_datetime + offset
 
 
+# convert a tweetdatetime to datetime
+def tweetdatetime_to_datetime(tweetDate):
+
+    return datetime.strptime(
+        tweetDate, "%a %b %d %H:%M:%S +0000 %Y"
+    )
+
+
 # Setting for PushOver
 app = Application(pushover_token_api)
 user = app.get_user(pushover_user_key)
@@ -131,9 +139,7 @@ try:
             localtime = datetime.strftime(
                 (
                     datetime_from_utc_to_local(
-                        datetime.strptime(
-                            tweet["created_at"], "%a %b %d %H:%M:%S +0000 %Y"
-                        )
+                        tweetdatetime_to_datetime(tweet["created_at"])
                     )
                 ),
                 "%H:%M:%S",
