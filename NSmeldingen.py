@@ -26,7 +26,7 @@ def datetime_from_utc_to_local(utc_datetime):
     return utc_datetime + offset
 
 
-# convert a tweetdatetime to datetime
+# convert a tweetdatetime to datetime_utc
 def tweetdatetime_to_datetime_utc(tweetDate):
 
     return datetime.strptime(
