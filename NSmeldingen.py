@@ -1,7 +1,7 @@
 # Name: NSmeldingen
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2016-07-28
-# update: 2021-04-19 21:50:19
+# update: 2021-04-20 09:56:46
 
 
 # Importing the modules
@@ -150,4 +150,3 @@ try:
 
 except TwythonError as e:
     print(e)
-    message = user.send_message("ERROR searching for tweets: " + e)
