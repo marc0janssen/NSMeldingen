@@ -145,8 +145,19 @@ try:
                 "%H:%M:%S",
             )
 
-            messageTXT = "%s - %s" % (localtime, tweet["text"])
-            message = user.send_message(messageTXT, sound="tugboat")
+            localdate = datetime.strftime(
+                (
+                    datetime_from_utc_to_local(
+                        tweetdatetime_to_datetime_utc(tweet["created_at"])
+                    )
+                ),
+                "%Y-%m-%d",
+            )
+
+            if localdate == datetime.strftime(datetime.now(), "%Y-%m-%d"):
+
+                messageTXT = "%s - %s" % (localtime, tweet["text"])
+                message = user.send_message(messageTXT, sound="tugboat")
 
 except TwythonError as e:
     print(e)
