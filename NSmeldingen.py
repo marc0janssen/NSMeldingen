@@ -56,6 +56,8 @@ exclude_words = ["Boskoop",
                  "Amsterdam",
                  "Amersfoort",
                  "Schiphol",
+                 "Almere",
+                 "\"Den Haag Laan van N.O.I\"",
                  "Bodegraven"]
 
 
