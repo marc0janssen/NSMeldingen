@@ -1,13 +1,13 @@
 # Name: NSmeldingen
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2016-07-28
-# update: 2021-04-16 17:23:57
+# update: 2021-04-20 09:56:46
 
 
 # Importing the modules
 from twython import Twython, TwythonError
 from chump import Application
-from datetime import datetime, date
+from datetime import datetime
 from re import compile
 from time import time
 from NSmeldingen_settings import (twitter_app_key,
@@ -24,6 +24,14 @@ def datetime_from_utc_to_local(utc_datetime):
     offset = datetime.fromtimestamp(
         now_timestamp) - datetime.utcfromtimestamp(now_timestamp)
     return utc_datetime + offset
+
+
+# convert a tweetdatetime to datetime_utc
+def tweetdatetime_to_datetime_utc(tweetDate):
+
+    return datetime.strptime(
+        tweetDate, "%a %b %d %H:%M:%S +0000 %Y"
+    )
 
 
 # Setting for PushOver
@@ -129,15 +137,29 @@ try:
 
             # Get the time of the tweet and
             # convert the UTC to the local time
-            tweetdatetime = tweet["created_at"].split()
-            tweettime = tweetdatetime[3].split(":")
-            stringUTC = "%s %s" % (date.today().strftime(
-                "%Y-%m-%d"), tweetdatetime[3])
-            utcDateTime = datetime.strptime(stringUTC, "%Y-%m-%d %H:%M:%S")
-            localtime = str(datetime_from_utc_to_local(utcDateTime)).split(" ")
-            messageTXT = "%s - %s" % (localtime[1], tweet["text"])
-            message = user.send_message(messageTXT, sound="tugboat")
+
+            localtime = datetime.strftime(
+                (
+                    datetime_from_utc_to_local(
+                        tweetdatetime_to_datetime_utc(tweet["created_at"])
+                    )
+                ),
+                "%H:%M:%S",
+            )
+
+            localdate = datetime.strftime(
+                (
+                    datetime_from_utc_to_local(
+                        tweetdatetime_to_datetime_utc(tweet["created_at"])
+                    )
+                ),
+                "%Y-%m-%d",
+            )
+
+            if localdate == datetime.strftime(datetime.now(), "%Y-%m-%d"):
+
+                messageTXT = "%s - %s" % (localtime, tweet["text"])
+                message = user.send_message(messageTXT, sound="tugboat")
 
 except TwythonError as e:
     print(e)
-    message = user.send_message("ERROR searching for tweets: " + e)
