@@ -49,6 +49,7 @@ id_file = "./NSmeldingen_lastID.txt"
 
 # Let's gather a list of words we DON'T want to send to Pushover
 exclude_words = ["Boskoop",
+                 "Almere",
                  "Alphen",
                  "Mariahoeve",
                  "\"Maria hoeve\"",
