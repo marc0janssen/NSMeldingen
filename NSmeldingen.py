@@ -111,7 +111,7 @@ unwanted = " -" + " -".join(exclude_words)
 
 # And finally our list of keywords that we want to search for
 # This will search for any words in include_words minus any exclude_words
-keywords = "from:%s AND (%s%s)" % (twitter_account, wanted, unwanted)
+keywords = f'from:{twitter_account} AND ({wanted}{unwanted})'
 
 
 try:
@@ -159,8 +159,8 @@ try:
 
             if localdate == datetime.strftime(datetime.now(), "%Y-%m-%d"):
 
-                messageTXT = "%s - %s" % (localtime, tweet["text"])
-                message = user.send_message(messageTXT, sound="tugboat")
+                message = user.send_message(
+                    f'{localtime} - {tweet["text"]}', sound="tugboat")
 
 except TwythonError as e:
     print(e)
