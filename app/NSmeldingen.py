@@ -115,8 +115,6 @@ class NSmeldingen():
             f"({self.wanted}{self.unwanted})"
         )
 
-        print(self.keywords)
-
         try:
             # This time we want to set our q to search for our keywords
             self.twitter = Twython(
