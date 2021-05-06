@@ -168,9 +168,10 @@ class NSmeldingen():
                         datetime.now(), "%Y-%m-%d"
                     ):
 
-                        messageTXT = f"{self.localtime} - {tweet['text']}"
                         self.message = self.userPushover.send_message(
-                            message=messageTXT, sound="tugboat")
+                            message=f"{self.localtime} - {tweet['text']}",
+                            sound="tugboat"
+                        )
 
         except TwythonError as e:
             print(e)
