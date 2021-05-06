@@ -12,5 +12,19 @@
 8. Get token api for the app
 9. Fill out NSmeldingen_settings.py
 10. Setup your own route in NSmeldingen.py. First by adding all the stations on your route to the include_words and then excluding the stations branching from the route. Check the messages posted to Pushover by placing those stations in the exclude_words. This way only you optimal route remains.
+11. Create a directory "config" in and create a NSmeldingen.ini file
+
+    [TWITTER]
+    APP_KEY = xxxxxxxxxxxxxxx
+    APP_SECRET = xxxxxxxxxxxxxxx
+    OAUTH_TOKEN = xxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx
+    OAUTH_TOKEN_SECRET = xxxxxxxxxxxxxxx
+    ACCOUNT = xxxxx
+    EXCLUDE_WORDS = xxx,yyy
+    INCLUDE_WORDS = zzz,qqq
+
+    [PUSHOVER]
+    USER_KEY = xxxxxxxxxxxxxxx
+    TOKEN_API = xxxxxxxxxxxxxxx
 
 2021-05-06 13:13:20
