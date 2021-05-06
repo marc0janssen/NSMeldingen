@@ -25,20 +25,20 @@ class NSmeldingen():
             level=logging.INFO)
 
         # Filename to hold the last known TwitterID
-        self.id_file = "./config/NSmeldingen_lastID.txt"
+        self.id_file = "/config/NSmeldingen_lastID.txt"
 
         # Get our last known found tweet by ID
         # or else create an empty file and set ID to "0"
         try:
             f = open(self.id_file, "r")
             self.sinceid_value = f.readline()
-        except IOError:
+        except IOError or FileNotFoundError:
             f = open(self.id_file, "w+")
             self.sinceid_value = "0"
         finally:
             f.close()
 
-        self.config_file = "./config/NSmeldingen.ini"
+        self.config_file = "/config/NSmeldingen.ini"
 
         try:
             with open(self.config_file, "r") as f:
