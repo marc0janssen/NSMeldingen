@@ -76,8 +76,8 @@ class NSmeldingen():
                 f"creating example INI file."
             )
 
-            shutil.copyfile('./app/NSmeldingen.ini.example',
-                            './config/NSmeldingen.ini.example')
+            shutil.copyfile('/app/NSmeldingen.ini.example',
+                            '/config/NSmeldingen.ini.example')
             sys.exit()
 
     # Convert UTC times to local times
