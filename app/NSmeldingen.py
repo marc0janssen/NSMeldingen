@@ -179,7 +179,7 @@ class NSmeldingen():
                             sound="tugboat"
                         )
 
-                        # Log a run
+                        # Log a message
                         logging.info(
                             f"{self.localtime} - {tweet['text']}"
                         )
