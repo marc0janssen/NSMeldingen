@@ -95,6 +95,12 @@ class NSmeldingen():
         )
 
     def run(self):
+
+        # Log a run
+        logging.info(
+            "Executing NSMeldingen."
+        )
+
         # Setting for PushOver
         self.appPushover = Application(self.pushover_token_api)
         self.userPushover = self.appPushover.get_user(self.pushover_user_key)
@@ -171,6 +177,11 @@ class NSmeldingen():
                         self.message = self.userPushover.send_message(
                             message=f"{self.localtime} - {tweet['text']}",
                             sound="tugboat"
+                        )
+
+                        # Log a run
+                        logging.info(
+                            f"{self.localtime} - {tweet['text']}"
                         )
 
         except TwythonError as e:
