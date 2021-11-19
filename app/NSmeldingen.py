@@ -96,11 +96,6 @@ class NSmeldingen():
 
     def run(self):
 
-        # Log a run
-        logging.info(
-            "Executing NSMeldingen."
-        )
-
         # Setting for PushOver
         self.appPushover = Application(self.pushover_token_api)
         self.userPushover = self.appPushover.get_user(self.pushover_user_key)
