@@ -61,6 +61,7 @@ class NSmeldingen():
 
                 self.pushover_user_key = self.config['PUSHOVER']['USER_KEY']
                 self.pushover_token_api = self.config['PUSHOVER']['TOKEN_API']
+                self.pushover_sound = self.config['PUSHOVER']['SOUND']
 
             except KeyError:
                 logging.error(
@@ -171,7 +172,7 @@ class NSmeldingen():
 
                         self.message = self.userPushover.send_message(
                             message=f"{self.localtime} - {tweet['text']}",
-                            sound="tugboat"
+                            sound=self.pushover_sound
                         )
 
                         # Log a message

@@ -27,5 +27,6 @@
     [PUSHOVER]
     USER_KEY = xxxxxxxxxxxxxxx
     TOKEN_API = xxxxxxxxxxxxxxx
+    SOUND = pushover
 
 2021-05-06 13:13:20
